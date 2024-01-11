@@ -3,9 +3,11 @@ install:
 
 format:
 	#format code
+	black *.py mylib/*.py
 
 lint:
 	#linter using flake8 or pylint
+	pylint --disable=R,C *.py mylib/*.py
 
 test:
 	#test
@@ -13,4 +15,4 @@ test:
 deploy:
 	#deploy
 
-all: install
+all: install format lint test deploy
